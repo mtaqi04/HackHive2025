@@ -1,0 +1,186 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e8f5e9; /* Soft greenish background for a calming effect */
+    color: #333; /* Dark text for better contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 500px; /* Narrower width to resemble a phone/tablet screen */
+    height: 80vh;
+    background: #ffffff; /* Light background for the chat window */
+    border-radius: 20px; /* Rounded corners for a mobile-like feel */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+/* Chat Header */
+.chat-header {
+    background: #66bb6a; /* Calming green color */
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.6em;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 0 10px rgba(102, 187, 106, 0.5);
+    text-shadow: 0 0 5px rgba(102, 187, 106, 0.8);
+}
+
+/* Chat Box */
+.chat-box {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f5f5f5; /* Light greyish background for the chat area */
+    border-bottom: 2px solid #ddd; /* Soft border at the bottom */
+    border-left: 2px solid #ddd; /* Soft border on the left */
+    border-right: 2px solid #ddd; /* Soft border on the right */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    font-size: 1.1em; /* Larger text for easier reading */
+}
+
+/* Message bubbles */
+.message {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease-out;
+    max-width: 75%;
+}
+
+.user-message p {
+    background: #66bb6a; /* Green for user messages */
+    color: white;
+    padding: 12px 18px;
+    border-radius: 18px;
+    align-self: flex-end;
+    max-width: 85%;
+    box-shadow: 0 4px 10px rgba(102, 187, 106, 0.6); /* Slight shadow */
+    word-wrap: break-word;
+    margin-top: 5px;
+}
+
+.bot-message p {
+    background: #eceff1; /* Light gray-blue for bot messages */
+    color: #333;
+    padding: 12px 18px;
+    border-radius: 18px;
+    align-self: flex-start;
+    max-width: 85%;
+    box-shadow: 0 4px 10px rgba(176, 190, 197, 0.6); /* Slight shadow */
+    word-wrap: break-word;
+    margin-top: 5px;
+}
+
+/* Chat Input */
+.chat-input {
+    background-color: #ffffff; /* White input box to resemble mobile input */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Input box */
+.chat-input input {
+    width: 80%;
+    padding: 12px 18px;
+    background-color: #f1f1f1; /* Light grey input box */
+    color: #333;
+    border-radius: 25px;
+    border: 1px solid #ddd; /* Light border */
+    outline: none;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Input box focus state */
+.chat-input input:focus {
+    background-color: #ffffff;
+    border: 1px solid #66bb6a; /* Highlight with green border */
+    box-shadow: 0 0 10px rgba(102, 187, 106, 0.5);
+    border-radius: 25px;
+}
+
+/* Fancy arrow button styling */
+.chat-input button {
+    padding: 15px;
+    font-size: 2em; /* Larger size for the arrow */
+    background: #66bb6a; /* Green background for the button */
+    color: white; /* White arrow text color */
+    border-radius: 50%; /* Circular button */
+    border: 2px solid #66bb6a; /* Calming green border */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(102, 187, 106, 0.6); /* Glowing effect */
+    outline: none; /* Remove outline */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Specific width */
+    height: 60px; /* Specific height */
+    position: relative;
+}
+
+/* Arrow inside button */
+.chat-input button::before {
+    content: '\2191'; /* Unicode for upwards arrow */
+    font-size: 2em; /* Make the arrow a bit larger */
+    color: white; /* White color for the arrow */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.9); /* Glowing effect */
+}
+
+/* Hover Effects */
+.chat-input button:hover {
+    background-color: #66bb6a; /* Green background on hover */
+    color: white; /* White arrow text when hovered */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Increased glow effect */
+    transform: scale(1.1); /* Slightly grow the button */
+}
+
+/* Focus Effects */
+.chat-input button:focus {
+    outline: none;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.9); /* Larger glow when focused */
+}
+
+/* Animations */
+@keyframes slideIn {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
